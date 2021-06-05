@@ -12,6 +12,6 @@ public class TestListener implements Listener {
     public void onBlockBreak(BlockBreakEvent e) {
         Player p = e.getPlayer();
         p.getInventory().addItem(ConfigHandler.loadRobotItem());
-        MessageHandler.sendMessage(p,MessageHandler.plugin_prefix);
+        MessageHandler.sendMessage(p,MessageHandler.robot_item_received);
     }
 }

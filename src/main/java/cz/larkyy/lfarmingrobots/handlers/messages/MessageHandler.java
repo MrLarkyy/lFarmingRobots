@@ -18,11 +18,11 @@ public class MessageHandler {
     public static String robot_item_received;
 
     public static void sendMessage(Player p, String msg) {
-        p.sendMessage(replacePlaceholders(ChatUtils.format(msg)));
+        p.sendMessage(ChatUtils.format(replacePlaceholders(msg)));
     }
     public static void sendMessage(Player p, List<String> msgs) {
         for (String msg : msgs) {
-            p.sendMessage(replacePlaceholders(ChatUtils.format(msg)));
+            p.sendMessage(ChatUtils.format(replacePlaceholders(msg)));
         }
     }
 

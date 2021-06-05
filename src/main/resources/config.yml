@@ -1,0 +1,6 @@
+robotItem:
+  material: PLAYER_HEAD
+  displayName: "&2Farming &fRobot"
+  lore:
+    - ""
+    - "&7&oPlace to spawn the robot"

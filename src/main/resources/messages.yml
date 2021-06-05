@@ -1,0 +1,4 @@
+prefix: "{#34B622}[FarmingRobots]&f"
+enabled: "%prefix% plugin has been &aenabled&f!"
+disabled: "%prefix% plugin has been &cdisabled&f!"
+robotItemReceived: "%prefix% You have received the &eFarming Robot&f!"

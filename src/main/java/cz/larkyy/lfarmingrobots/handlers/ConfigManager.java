@@ -1,7 +1,7 @@
 package cz.larkyy.lfarmingrobots.handlers;
 
-import config.Config;
 import cz.larkyy.lfarmingrobots.LFarmingRobots;
+import cz.larkyy.llibrary.config.Config;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class ConfigManager {

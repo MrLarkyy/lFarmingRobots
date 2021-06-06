@@ -1,13 +1,18 @@
 package cz.larkyy.lfarmingrobots;
 
-import config.annotation.ConfigAnnotationManager;
 import cz.larkyy.lfarmingrobots.handlers.ConfigManager;
 import cz.larkyy.lfarmingrobots.handlers.config.CfgVar;
 import cz.larkyy.lfarmingrobots.handlers.config.ConfigHandler;
 import cz.larkyy.lfarmingrobots.handlers.messages.MessageHandler;
 import cz.larkyy.lfarmingrobots.handlers.messages.MsgsCfgVar;
+import cz.larkyy.lfarmingrobots.robots.RobotStorage;
+import cz.larkyy.lfarmingrobots.robots.runnables.FieldRunnable;
+import cz.larkyy.lfarmingrobots.robots.runnables.FieldVisualization;
+import cz.larkyy.lfarmingrobots.robots.runnables.RotationRunnable;
 import cz.larkyy.llibrary.chat.ChatUtils;
+import cz.larkyy.llibrary.config.annotation.ConfigAnnotationManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public final class LFarmingRobots extends JavaPlugin {
 
@@ -26,10 +31,20 @@ public final class LFarmingRobots extends JavaPlugin {
         msgsAnnotation.update();
         cfgAnnotation.update();
 
-        getServer().getPluginManager().registerEvents(new TestListener(),this);
+        getServer().getPluginManager().registerEvents(new Listeners(),this);
 
-        getServer().getConsoleSender().sendMessage("Is message null: "+(MessageHandler.plugin_enabled == null));
         ChatUtils.sendConsoleMsg(this, MessageHandler.replacePlaceholders(MessageHandler.plugin_enabled));
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                RobotStorage.loadDataCfg();
+
+                new FieldRunnable().runTaskTimer(getInstance(),0,50);
+                new RotationRunnable().runTaskTimer(getInstance(),0,1);
+                new FieldVisualization().runTaskTimer(getInstance(),0,20);
+            }
+        }.runTaskLater(this,50);
     }
 
     @Override

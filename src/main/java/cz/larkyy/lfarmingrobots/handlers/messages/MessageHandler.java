@@ -17,6 +17,12 @@ public class MessageHandler {
     @MsgsCfgVar("robotItemReceived")
     public static String robot_item_received;
 
+    @MsgsCfgVar("robotPlaced")
+    public static String robot_placed;
+
+    @MsgsCfgVar("wandItemReceived")
+    public static String wand_item_received;
+
     public static void sendMessage(Player p, String msg) {
         p.sendMessage(ChatUtils.format(replacePlaceholders(msg)));
     }

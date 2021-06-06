@@ -4,3 +4,13 @@ robotItem:
   lore:
     - ""
     - "&7&oPlace to spawn the robot"
+selectWandItem:
+  material: BLAZE_ROD
+  displayName: "&2Farm Selection &fWand"
+  lore:
+    - ""
+    - "&7&oRight-Click to add a field"
+    - "&7&oLeft-Click to remove a field"
+
+permissions:
+  admin: "lFarmingRobots.admin"
